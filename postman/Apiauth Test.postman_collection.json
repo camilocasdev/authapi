@@ -1,0 +1,503 @@
+{
+	"info": {
+		"_postman_id": "8bf0092d-8f5b-4529-b70d-107a3a2f3e76",
+		"name": "Apiauth Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40208689"
+	},
+	"item": [
+		{
+			"name": "Reservas",
+			"item": [
+				{
+					"name": "[GET] Lista de Reservas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjFjZTJhYWNhZjlkZTQ2OGM0ZDQxMCIsImlhdCI6MTczNDQ2MzA0NCwiZXhwIjoxNzM0NTQ5NDQ0fQ._twxf5MR1iWD1JWvBuKavXzvRCfcc7vRa4w0JGFyw4w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reserva",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reserva"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Reservas por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reserva/67572bf49540f6aed0aa228a",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reserva",
+								"67572bf49540f6aed0aa228a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] Crear reserva",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjFjM2JkNjliZTc1NGM5MDc3YjM2MCIsImlhdCI6MTczNDQ2MTk5NiwiZXhwIjoxNzM0NTQ4Mzk2fQ.lsg-61UgY8rYFIww2cIdkQy3oJf3tLnhlRjn7gYlpbU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"Pedro\",\r\n    \"fecha\": \"2025-02-30\",\r\n    \"hora\": \"22:00 UTC -5\",\r\n    \"habitacion\": \"203\",\r\n    \"precio\": 999,\r\n    \"estado\": \"Pago Válido\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reserva/new",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reserva",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] Modificar reserva",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjFjM2JkNjliZTc1NGM5MDc3YjM2MCIsImlhdCI6MTczNDQ2MTk5NiwiZXhwIjoxNzM0NTQ4Mzk2fQ.lsg-61UgY8rYFIww2cIdkQy3oJf3tLnhlRjn7gYlpbU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"Camilo\",\r\n    \"fecha\": \"2024-12-31\",\r\n    \"hora\": \"3:15 UTC-5\",\r\n    \"habitacion\": \"502\",\r\n    \"precio\": 999.99,\r\n    \"estado\": \"Pago Relizado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reserva/6761059502a22937efe8acc7",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reserva",
+								"6761059502a22937efe8acc7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DEL] Eliminar reserva",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjA3MzIwYTBhNDA4OWM0YzgxYzlhYiIsImlhdCI6MTczNDM3NTg1MywiZXhwIjoxNzM0NDYyMjUzfQ.reopSHgvI1vFFDliwHI6WIZaBgOdKBNR4GTIF_ujNfs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reserva/6760651a996e46e16091f668",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reserva",
+								"6760651a996e46e16091f668"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "[POST] Sign In",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"correo\" : \"labestia@gmail.com\",\r\n    \"contrasena\" : \"usuario123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Miguel\",\r\n    \"apellido\": \"Merentiel\",\r\n    \"contrasena\": \"usuario123456\",\r\n    \"correo\":\"labestia@gmail.com\",\r\n    \"telefono\": 1112121\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usercontrol",
+			"item": [
+				{
+					"name": "[GET] Lista de usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjFjZTJhYWNhZjlkZTQ2OGM0ZDQxMCIsImlhdCI6MTczNDQ2MzA0NCwiZXhwIjoxNzM0NTQ5NDQ0fQ._twxf5MR1iWD1JWvBuKavXzvRCfcc7vRa4w0JGFyw4w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/restr/user/list",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restr",
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Usuarios por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjFjZTJhYWNhZjlkZTQ2OGM0ZDQxMCIsImlhdCI6MTczNDQ2MzA0NCwiZXhwIjoxNzM0NTQ5NDQ0fQ._twxf5MR1iWD1JWvBuKavXzvRCfcc7vRa4w0JGFyw4w",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Camilo\",\r\n    \"apellido\": \"Castillo\",\r\n    \"contraseña\": \"123456\",\r\n    \"correo\":\"camilo.castillo3090@gmail.com\",\r\n    \"telefono\": 3214436503\r\n    //\"role\": [\"role.0\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/restr/user/6761c62869be754c9077b382",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restr",
+								"user",
+								"6761c62869be754c9077b382"
+							],
+							"query": [
+								{
+									"key": "s",
+									"value": "676086582cca9d4b88018f55",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DELETE] Usuario por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjFjM2JkNjliZTc1NGM5MDc3YjM2MCIsImlhdCI6MTczNDQ2MDUwOCwiZXhwIjoxNzM0NTQ2OTA4fQ.3Zjm57z0LTyTNu7vH80LN_9m-CnsrF-2zFjSdByz__Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/restr/user/delete/675e6328710ba8f44e441365",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restr",
+								"user",
+								"delete",
+								"675e6328710ba8f44e441365"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] Crear usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjA3MzIwYTBhNDA4OWM0YzgxYzlhYiIsImlhdCI6MTczNDQxMTAxMSwiZXhwIjoxNzM0NDk3NDExfQ.8leB7CocCELtgZpGdb7JxjB5S0c0b92gc0jx9o3SMQ4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Franco\",\r\n    \"apellido\": \"Yaz\",\r\n    \"contrasena\": \"empleado.123456\",\r\n    \"correo\":\"empleado@outlook.com\",\r\n    \"telefono\": 992389412,\r\n    \"role\": [\"empleado\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/restr/user/add",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restr",
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] Actualizar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NjA3MzIwYTBhNDA4OWM0YzgxYzlhYiIsImlhdCI6MTczNDQxMTAxMSwiZXhwIjoxNzM0NDk3NDExfQ.8leB7CocCELtgZpGdb7JxjB5S0c0b92gc0jx9o3SMQ4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Franco\",\r\n    \"apellido\": \"Galiano\",\r\n    \"contrasena\": \"empleado.123456\",\r\n    \"correo\":\"empleado@gmail.com\",\r\n    \"telefono\": 992389412\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/restr/user/update/6761c62869be754c9077b382",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restr",
+								"user",
+								"update",
+								"6761c62869be754c9077b382"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
