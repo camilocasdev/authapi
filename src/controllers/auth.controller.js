@@ -1,37 +1,42 @@
-import Usuario from '../models/user';
+import Usuario from '../models/user.js';
 import jwt from 'jsonwebtoken';
-import cfig from '../config'
-import Role from '../models/role';
+import cfig from '../config.js'
+import Role from '../models/role.js';
+
 
 export const signIn = async (req, res) => {
 
     try {
         
         const usuarioEncontrado = await Usuario.findOne({correo: req.body.correo}).populate("role")
-        
+
+
         if (!usuarioEncontrado) {
-            return res.status(404).json({token: null, message: "Usuario no encontrado" });
+            return res.redirect('/?error=credenciales_invalidas')
         }
 
-        if (!usuarioEncontrado.contrasena) {
-            return res.status(404).json({ token: null, message: "Contraseña no encontrada" });
-        }
-        
         const matchPass = await Usuario.comparePassword(req.body.contrasena, usuarioEncontrado.contrasena);
         
         if (!matchPass) {
-            return res.status(401).json({token: null, message: "Contraseña Invalida"})
+            return res.redirect('/?error')
         }
         const token = jwt.sign({id: usuarioEncontrado._id}, cfig.SECRET_KEY, {
-            expiresIn: 86400
+            expiresIn: 86400 // 1 dia
         });
 
-        console.log(usuarioEncontrado)
+        const cookieconfig = {
+            expires: new Date(Date.now() + cfig.COOKIE_EXPIRATION * 24 * 60 * 60 * 1000),
+            path: "/"
+        }
 
-        return res.json({ token });
+        res.cookie("tookie", token, cookieconfig); //Tookie es la fusión de Token y Cookie :D
+
+        return(
+            res.redirect('/postlog')
+        )
     } catch (error) {
         console.log(error)
-        res.status(400).json('Error al intentar hacer la comparación con la contraseña')
+        res.status(500).redirect('/?error=login')
     }
 };
     
@@ -64,15 +69,24 @@ export const signUp = async (req, res) => {
     const emailFound = await Usuario.findOne({ correo: correo });
 
     if (emailFound) {
-        return res.status(400).json({ msg: 'Correo ya existe' });
+        return res.redirect('/register?error=email_existente');
     }
 
     const usuarioGuardado = await nuevoUsuario.save();
+
 
     jwt.sign({id: usuarioGuardado._id}, cfig.SECRET_KEY, {
         expiresIn: 864000 //24 Horas
     });
 
-    res.status(200).json(usuarioGuardado)
+    res.redirect('/') //Redirige al inicio de sesión 
     
 };
+
+
+export const logout = async (req, res)  => {
+    res.clearCookie('tookie');
+    return(
+        res.redirect('/')
+    )
+}

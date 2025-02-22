@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Role from '../models/role';
+import Role from '../models/role.js';
 
 export const crearRole = async (req, res) => {
 

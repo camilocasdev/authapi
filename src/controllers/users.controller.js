@@ -1,7 +1,7 @@
-import Usuario from "../models/user";
-import Role from "../models/role";
+import Usuario from "../models/user.js";
+import Role from "../models/role.js";
 import jwt from "jsonwebtoken";
-import cfig from '../config';
+import cfig from '../config.js';
 
 export const get_user = async (req, res) => {
     const usuarios = await Usuario.find();

@@ -1,4 +1,4 @@
-import Reserva from '../models/reserva' 
+import Reserva from '../models/reserva.js' 
 
 export const createReserva = async (req, res) => {
 

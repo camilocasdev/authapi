@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Inicio de Sesión</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </header>
+    <body> 
+        <section class="register">
+            <article> <!-- Registro de Usuario -->
+                <h1>Registro</h1>
+                <form method="post" action="/auth/signup">
+                    <label class="row">
+                        <input type="text" name="nombre" placeholder="Nombre" required>
+                        <input type="text" name="apellido" placeholder="Apellido" required>
+                    </label>
+                    <label class="row">
+                        <input type="email" name="correo" placeholder="Correo" required>
+                        <input type="number" name="telefono" placeholder="Telefono" required>
+                    </label>
+                    <label class="column">
+                        <input type="password" name="contrasena" placeholder="Contraseña" required>
+                    </label>
+                    <button type="submit">Registrarse</button>
+                    <div>
+                        <a href="/">
+                            <p>Ya tienes cuenta? Inicia Sesión</p>
+                        </a>
+                    </div>
+                </form>
+            </article>
+            <article id="errorMsg" style="display: none">
+                <h2>Error...</h2>
+                <p>Credenciales incorrectas. Por favor, verifica tu usuario y contraseña.</p>
+            </article>
+        </section>
+    </body>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            background-color: #111111;  
+            justify-content: center;
+            align-items: center;
+            min-width: 100%;
+            min-height: 500px;
+            margin: 0;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+            min-width: 100%;
+            gap: 1rem
+        }
+        .row{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: .5rem
+        }
+        .column{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 140px
+        }
+        input{
+            min-width: fit-content;
+        }
+        h1 {
+            margin: 0rem 1rem 1rem 1rem;
+            text-align: center;
+            color: #000000
+        }
+        h2{
+            margin: .1rem .5rem .5rem 0rem;
+        }
+        p{
+            margin: .2rem 0rem
+        }
+        a{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color:#000000;
+            font-size: .8rem;
+        }
+        a :hover{
+            color: #2bc466;
+        }
+        .register {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: .8rem;
+            padding: 3rem; 
+            background-color: #eeeeee;
+            border-radius: 1rem;
+        }
+        #errorMsg{
+            flex-direction: column;
+            padding: .8rem;
+            background-color: rgb(221, 221, 221);
+            min-width: 100%;
+            max-width: 8rem;
+            border-radius: 0.8rem;
+        }
+    </style>
+    <script>
+
+        const url = new URLSearchParams(window.location.search)
+        
+        const errorm = url.get('error')
+
+        console.log(errorm)
+
+        if (errorm) {
+            document.getElementById("errorMsg").style.display = "flex";
+        }
+    </script>
+</html>

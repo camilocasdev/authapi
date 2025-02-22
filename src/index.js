@@ -1,7 +1,7 @@
 import app from './app.js';
 import * as db from './database.js';
 
-const port = 3000
+const port = 4000;
 
 try {
     app.listen(port);
@@ -9,7 +9,7 @@ try {
 
     db.dbconnect();
 } catch (error) {
-    console.log('Ha ocurrido un error al conectar', error)
+    console.log('Ha ocurrido un error al conectar', error);
 }
 
 
