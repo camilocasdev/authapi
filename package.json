@@ -2,11 +2,11 @@
   "name": "evidencia",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "nodemon src/index.js --exec babel-node",
     "build": "babel src --out-dir build",
-    "start": "node build/index.js"
+    "start": "node --experimental-modules build/index.js"
   },
   "keywords": [],
   "author": "Camilo Castillo",
