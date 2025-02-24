@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "44943848-5bb7-45a9-b6ac-c9c7b8c3f3ad",
+		"name": "API REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40208689"
+	},
+	"item": [
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Andres\",\r\n    \"apellido\" : \"Galindo\",\r\n    \"correo\" : \"andregal3090@gmail.com\",\r\n    \"contrasena\" : \"123456\",\r\n    \"telefono\" : 123456\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"correo\" : \"camilo.castillo3090@gmail.com\",\r\n    \"contrasena\" : \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": "tookie=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjllZmM5ZWZiMTlhMjFmY2FhZDAxOCIsImlhdCI6MTc0MDQwMzIwNiwiZXhwIjoxNzQwNDg5NjA2fQ.gxFBrTRHyRUIFooCfw9ilopmcG2pIbsyys51j8eHIbA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:4000/auth/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WEB",
+			"item": [
+				{
+					"name": "Cookie Middleware",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "tookie=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjllZmM5ZWZiMTlhMjFmY2FhZDAxOCIsImlhdCI6MTc0MDQwNDAzMSwiZXhwIjoxNzQwNDkwNDMxfQ.KjBHUGpzK44BoeQE3IUFApxdNoggs6GkJy0YMNE6yZ0",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "random=jhdausydwKDHAUOSDhaosidnwdioashjdkaswnd9U/89348209",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:4000/postlog",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"postlog"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
