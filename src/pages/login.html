@@ -4,6 +4,10 @@
         <title>Inicio de Sesión</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     </header>
     <body> 
         <section class="loginsect">
@@ -24,24 +28,34 @@
                     </a>
                 </div>
             </article>
-            <article id="errorMsg" style="display: none">
-                <h2>Error...</h2>
-                <p>Credenciales incorrectas. Por favor, verifica tu usuario y contraseña.</p>
-            </article>
+        </section>
+        <section id="errorMsg" style="display: none">
+            <h2>Error...</h2>
+            <p>Credenciales incorrectas. Por favor, verifica tu usuario y contraseña.</p>
         </section>
     </body>
     <style>
         body{
             display: flex;
             flex-direction: column;
-            background-color: #111111;  
+            background-color: #111111; 
+            background: url(https://nicodev.s-ul.eu/Fn5hBOpX) no-repeat center/cover;
             justify-content: center;
             align-items: center;
             margin: 0;
             height: 100vh;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
         }
-        
-        form{
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        form{   
             display: flex;
             flex-direction: column;
             gap: 1rem
@@ -49,13 +63,19 @@
         h1 {
             margin: 0rem 1rem 1rem 1rem;
             text-align: center;
-            color: #000000
+            color: #249737;
+            text-shadow: 0rem .3rem .6rem  rgb(0, 0, 0, 0.2);
+            font-family: "Outfit", serif;
+            font-weight: 700;
+            font-size: 1.4rem;
         }
         h2{
             margin: .1rem .5rem .5rem 0rem;
         }
         p{
-            margin: .2rem 0rem
+            margin: .6rem 0rem 0rem 0rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
         }
         a{
             flex-direction: column;
@@ -66,26 +86,44 @@
             font-size: .8rem;
         }
         a :hover{
-            color: #2bc466;
+            color: #1a723b;
         }
         .loginsect {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: space-between;
             align-items: center;
             gap: .8rem;
             padding: 2rem;
-            background-color: #eeeeee;
+            background-color: rgb(238, 238, 238, 0.8);
+            backdrop-filter: blur(.09rem);
+            filter: drop-shadow(0rem .5rem .7rem rgb(0, 0, 0, 0.5));
             border-radius: 1rem;
         }
         #errorMsg{
             flex-direction: column;
-
             background-color: rgb(233, 190, 190);
             min-width: 100%;
             max-width: 4rem;
             border-radius: 0.8rem;
-
+        }
+        button{
+            background-color: #31c74a;
+            color:#eeeeee;
+            padding: 1rem 3rem;
+            border-radius: .8rem;
+            border: none;
+            font-weight: 600;
+            font-size: medium;
+        }
+        input{
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: .8rem;
+        }
+        button:hover{
+            background-color: #54e96c;
+            cursor: pointer;
         }
     </style>
     <script>
