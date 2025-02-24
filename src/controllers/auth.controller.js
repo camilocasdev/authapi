@@ -26,10 +26,19 @@ export const signIn = async (req, res) => {
 
         const cookieconfig = {
             expires: new Date(Date.now() + cfig.COOKIE_EXPIRATION * 24 * 60 * 60 * 1000),
-            path: "/"
+            path: "/",
+            httpOnly: true,
+            secure: true,
+            samesite: "Strict"
         }
 
         res.cookie("tookie", token, cookieconfig); //Tookie es la fusión de Token y Cookie :D
+        
+        const postmanValid = req.headers['content-type']
+
+        if (postmanValid === 'application/json'){
+            return res.status(201).json({ message: 'Login exitoso', user: usuarioEncontrado});
+        }
 
         return(
             res.redirect('/postlog')
@@ -74,13 +83,15 @@ export const signUp = async (req, res) => {
 
     const usuarioGuardado = await nuevoUsuario.save();
 
+    const postmanValid = req.headers['content-type']
 
-    jwt.sign({id: usuarioGuardado._id}, cfig.SECRET_KEY, {
-        expiresIn: 864000 //24 Horas
-    });
+    if (postmanValid === 'application/json'){
+        return res.status(201).json({ message: 'Registro exitoso', user: usuarioGuardado});
+    }
 
-    res.redirect('/') //Redirige al inicio de sesión 
-    
+    return(
+        res.redirect('/') //Redirige al inicio de sesión 
+    )
 };
 
 

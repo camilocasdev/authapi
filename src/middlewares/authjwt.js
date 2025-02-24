@@ -5,9 +5,21 @@ import Role from '../models/role.js';
 
 export const verifyToken = async (req, res, next) => {
 
-    const token = req.headers["x-access-token"];
+    const token = req.cookies["tookie"];
 
-    if (!token) return res.status(403).json({msg: "No token provided"}) //Limita la información o la ruta para los que no tienen un token, es decir un usuario no registrado o logeado
+    if (!token) {
+        //Limita la información o la ruta para los que no tienen un token, es decir un usuario no registrado o logeado
+            //Postman TEST
+            const postmanValid = req.headers['content-type']
+
+            if (postmanValid === 'application/json'){
+                return res.status(403).json({msg: "Tooken invalido o no existe"})
+            }
+
+        return(
+            res.redirect('/?error=no_token')
+        )
+    }
 
     try {
         const decoded = jwt.verify(token, cfig.SECRET_KEY); //Verifica el token
